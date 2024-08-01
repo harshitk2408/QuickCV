@@ -2,7 +2,6 @@
 
 import axios from 'axios';
 import { useState } from 'react';
-import { CldUploadWidget } from 'next-cloudinary'; 
 import {
   Card,
   CardHeader,

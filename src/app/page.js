@@ -1,5 +1,3 @@
-import Image from "next/image";
-import bg from '../../public/blackbg.jpg';
 import Form from "@/components/Form";
 import Steps from "@/components/Steps";
 import Hero from "@/components/Hero";
