@@ -16,7 +16,7 @@ export default function About() {
         <div
           className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
           <Link
-            href="#"
+            href="https://www.linkedin.com/in/harshit-khurana-465979145/"
             target="_blank"
             className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
             prefetch={false}>
@@ -24,7 +24,7 @@ export default function About() {
             LinkedIn
           </Link>
           <Link
-            href="#"
+            href="https://github.com/harshitk2408"
             target="_blank"
             className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
             prefetch={false}>
@@ -32,7 +32,7 @@ export default function About() {
             GitHub
           </Link>
           <Link
-            href="#"
+            href="https://leetcode.com/u/Harshit2483/"
             target="_blank"
             className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
             prefetch={false}>
