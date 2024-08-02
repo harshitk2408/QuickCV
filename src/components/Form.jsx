@@ -136,7 +136,6 @@ export default function Form() {
     setExperiences((prev) => prev.filter((_, i) => i !== index));
   };
   const handleExperienceChange = (index, field, value) => {
-    console.log(index,field,value);
     setExperiences((prev) => 
       prev.map((exp, i) => 
         i === index ? { ...exp, [field]: value } : exp
