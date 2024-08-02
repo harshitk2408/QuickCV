@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "QuickCV",
-  description: "Generated CV in seconds",
+  description: "Generate CV in seconds",
 };
 
 export default function RootLayout({ children }) {
