@@ -26,6 +26,7 @@ export default function Form() {
   const [personalDetails, setPersonalDetails] = useState({
     name: "",
     email: "",
+    bio:"",
     linkedin: "",
     github: "",
   });
@@ -233,7 +234,7 @@ export default function Form() {
           return;
         }
       } else {
-        project.thumbnail = "";
+        project.thumbnail = "Project/ejowpggabfmioqimtx7r";
       }
     }
     
@@ -331,6 +332,20 @@ export default function Form() {
                     value={personalDetails.github}
                     onChange={(e) =>
                       handlePersonalDetailsChange("github", e.target.value)
+                    }
+                    className="bg-black text-white"
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="name" className="text-white">
+                    Bio (Example-A Front End Developer) (Optional)
+                  </Label>
+                  <Input
+                    id="bio"
+                    value={personalDetails.bio}
+                    onChange={(e) =>
+                      handlePersonalDetailsChange("bio", e.target.value)
                     }
                     className="bg-black text-white"
                     required
