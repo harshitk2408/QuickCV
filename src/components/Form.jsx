@@ -182,20 +182,6 @@ export default function Form() {
 
   // Handle Submit
   const handleSubmit = async (e) => {
-    const obj = {
-      personalDetails,
-      education,
-      projects,
-      experiences,
-      skills,
-    };
-    await handleDownload();
-    const jsonData = JSON.stringify(obj, null, 2);
-    const encodedJsonData = encodeURIComponent(jsonData);
-    
-    // Navigate to the new page with JSON data
-    window.open(`/json-display?jsonData=${encodedJsonData}`, '_blank');
-    return;
     e.preventDefault();
 
     if (
@@ -253,19 +239,19 @@ export default function Form() {
     }
     
     // Log and save portfolio data
-    // const obj = {
-    //   personalDetails,
-    //   education,
-    //   projects,
-    //   experiences,
-    //   skills,
-    // };
-    // await handleDownload();
-    // const jsonData = JSON.stringify(obj, null, 2);
-    // const encodedJsonData = encodeURIComponent(jsonData);
+    const obj = {
+      personalDetails,
+      education,
+      projects,
+      experiences,
+      skills,
+    };
+    await handleDownload();
+    const jsonData = JSON.stringify(obj, null, 2);
+    const encodedJsonData = encodeURIComponent(jsonData);
     
-    // // Navigate to the new page with JSON data
-    // window.open(`/json-display?jsonData=${encodedJsonData}`, '_blank');
+    // Navigate to the new page with JSON data
+    window.open(`/json-display?jsonData=${encodedJsonData}`, '_blank');
     setShowAlert(true);
     setTimeout(() => {
       setShowAlert(false);
