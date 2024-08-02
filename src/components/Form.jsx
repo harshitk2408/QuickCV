@@ -20,7 +20,7 @@ import {
   PopoverContent,
 } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
-
+import MonthYearPicker from '@/components/ui/MonthYearPicker';
 export default function Form() {
   const [showAlert, setShowAlert] = useState(false);
   const [personalDetails, setPersonalDetails] = useState({
@@ -53,8 +53,8 @@ export default function Form() {
       company: "",
       role: "",
       description: "",
-      startDate: "",
-      endDate: "",
+      startDate: new Date(),
+      endDate: new Date(),
     },
   ]);
   const [skills, setSkills] = useState([]);
@@ -127,8 +127,8 @@ export default function Form() {
         company: "",
         role: "",
         description: "",
-        startDate: "",
-        endDate: "",
+        startDate: new Date(),
+        endDate: new Date(),
       },
     ]);
   };
@@ -136,6 +136,7 @@ export default function Form() {
     setExperiences((prev) => prev.filter((_, i) => i !== index));
   };
   const handleExperienceChange = (index, field, value) => {
+    console.log(index,field,value);
     setExperiences((prev) => 
       prev.map((exp, i) => 
         i === index ? { ...exp, [field]: value } : exp
@@ -154,7 +155,6 @@ export default function Form() {
   const handleSkillDelete = (index) => {
     setSkills((prev) => prev.filter((_, i) => i !== index));
   };
-
   // Handle Download
   const handleDownload = async () => {
     try {
@@ -450,80 +450,22 @@ export default function Form() {
                           htmlFor={`edu-start-${index}`}
                           className="text-white"
                         >
-                          Start* (Only year required)
+                          Start*
                         </Label>
-                        <Popover>
-                          <PopoverTrigger asChild>
-                            <Button
-                              variant="outline"
-                              className="w-full justify-start font-normal bg-black"
-                            >
-                              {edu.start
-                                ? new Date(
-                                    edu.start
-                                  ).toLocaleDateString()
-                                : "Select start date"}
-                              <CalendarDaysIcon className="ml-auto h-4 w-4 opacity-50" />
-                            </Button>
-                          </PopoverTrigger>
-                          <PopoverContent className="w-auto p-0" align="start">
-                            <Calendar
-                              mode="single"
-                              selected={
-                                edu.start
-                                  ? new Date(edu.start)
-                                  : null
-                              }
-                              onSelect={(date) =>
-                                handleEduChange(
-                                  index,
-                                  "start",
-                                  date.toISOString()
-                                )
-                              }
-                            />
-                          </PopoverContent>
-                        </Popover>
+                        <Input type="number" placeholder="YYYY" min="1900" max="2099" className='bg-black text-white' onChange={(e) =>
+                            handleEduChange(index, "start", e.target.value)
+                          }/>
                       </div>
                       <div className="space-y-2">
                         <Label
                           htmlFor={`edu-end-${index}`}
                           className="text-white"
                         >
-                          End Date* (Only year required)
-                        </Label>
-                        <Popover>
-                          <PopoverTrigger asChild>
-                            <Button
-                              variant="outline"
-                              className="w-full justify-start font-normal bg-black"
-                            >
-                              {edu.end
-                                ? new Date(
-                                    edu.end
-                                  ).toLocaleDateString()
-                                : "Select end date"}
-                              <CalendarDaysIcon className="ml-auto h-4 w-4 opacity-50" />
-                            </Button>
-                          </PopoverTrigger>
-                          <PopoverContent className="w-auto p-0" align="start">
-                            <Calendar
-                              mode="single"
-                              selected={
-                                edu.end
-                                  ? new Date(edu.end)
-                                  : null
-                              }
-                              onSelect={(date) =>
-                                handleEduChange(
-                                  index,
-                                  "end",
-                                  date.toISOString()
-                                )
-                              }
-                            />
-                          </PopoverContent>
-                        </Popover>
+                          End Date*
+                        </Label><br/>
+                        <Input type="number" placeholder="YYYY" min="1900" max="2099" className='bg-black text-white' onChange={(e) =>
+                            handleEduChange(index, "end", e.target.value)
+                          }/>
                       </div>
                     </div>
                     <div className="flex justify-end">
@@ -692,39 +634,8 @@ export default function Form() {
                           className="text-white"
                         >
                           Start Date*
-                        </Label>
-                        <Popover>
-                          <PopoverTrigger asChild>
-                            <Button
-                              variant="outline"
-                              className="w-full justify-start font-normal bg-black"
-                            >
-                              {experience.startDate
-                                ? new Date(
-                                    experience.startDate
-                                  ).toLocaleDateString()
-                                : "Select start date"}
-                              <CalendarDaysIcon className="ml-auto h-4 w-4 opacity-50" />
-                            </Button>
-                          </PopoverTrigger>
-                          <PopoverContent className="w-auto p-0" align="start">
-                            <Calendar
-                              mode="single"
-                              selected={
-                                experience.startDate
-                                  ? new Date(experience.startDate)
-                                  : null
-                              }
-                              onSelect={(date) =>
-                                handleExperienceChange(
-                                  index,
-                                  "startDate",
-                                  date.toISOString()
-                                )
-                              }
-                            />
-                          </PopoverContent>
-                        </Popover>
+                        </Label><br/>
+                        <MonthYearPicker selectedDate={experience.startDate} handleDateChange={(date) => handleExperienceChange(index, 'startDate', date) } />
                       </div>
                       <div className="space-y-2">
                         <Label
@@ -732,39 +643,8 @@ export default function Form() {
                           className="text-white"
                         >
                           End Date*
-                        </Label>
-                        <Popover>
-                          <PopoverTrigger asChild>
-                            <Button
-                              variant="outline"
-                              className="w-full justify-start font-normal bg-black"
-                            >
-                              {experience.endDate
-                                ? new Date(
-                                    experience.endDate
-                                  ).toLocaleDateString()
-                                : "Select end date"}
-                              <CalendarDaysIcon className="ml-auto h-4 w-4 opacity-50" />
-                            </Button>
-                          </PopoverTrigger>
-                          <PopoverContent className="w-auto p-0" align="start">
-                            <Calendar
-                              mode="single"
-                              selected={
-                                experience.endDate
-                                  ? new Date(experience.endDate)
-                                  : null
-                              }
-                              onSelect={(date) =>
-                                handleExperienceChange(
-                                  index,
-                                  "endDate",
-                                  date.toISOString()
-                                )
-                              }
-                            />
-                          </PopoverContent>
-                        </Popover>
+                        </Label><br/>
+                        <MonthYearPicker selectedDate={experience.endDate} handleDateChange={(date) => handleExperienceChange(index, 'endDate', date) } />
                       </div>
                     </div>
                     <div className="space-y-2">
