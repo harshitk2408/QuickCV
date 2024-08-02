@@ -207,7 +207,7 @@ export default function Form() {
     }
     
     // Validate experiences
-    if (experiences.some(exp => !exp.company.trim() || !exp.role.trim() || !exp.startDate.trim() || !exp.endDate.trim())) {
+    if (experiences.some(exp => !exp.company.trim() || !exp.role.trim()) {
       alert("Please fill in all required fields in experiences.");
       return;
     }
