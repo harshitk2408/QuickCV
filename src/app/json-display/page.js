@@ -10,7 +10,6 @@ function SearchBarContent() {
       <h1 className='text-2xl font-extrabold mb-[1%]'>Note</h1>
       1. Unzip the &quot;Portfolio&quot; folder<br/>
       2. Copy this code and paste it in &quot;details.json&quot;<br/>
-      <div className='mt-[1%]'><span className='text-1xl font-extrabold mb-[1%] mr-[1%]'>To view on local server  :  </span> Install dependencies using &quot;npm install&quot; </div>
       <pre className='mt-[4%]'>{data}</pre>
     </section>
   );
