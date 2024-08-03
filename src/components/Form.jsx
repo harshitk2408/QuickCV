@@ -245,12 +245,12 @@ export default function Form() {
       experiences,
       skills,
     };
-    await handleDownload();
     const jsonData = JSON.stringify(obj, null, 2);
     const encodedJsonData = encodeURIComponent(jsonData);
     
     // Navigate to the new page with JSON data
     window.open(`/json-display?jsonData=${encodedJsonData}`, '_blank');
+    await handleDownload();
     setShowAlert(true);
     setTimeout(() => {
       setShowAlert(false);
