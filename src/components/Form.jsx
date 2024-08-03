@@ -417,7 +417,7 @@ export default function Form() {
                           htmlFor={`edu-grade-${index}`}
                           className="text-white"
                         >
-                          Grade
+                          CGPA/Percentage
                         </Label>
                         <Input
                           id={`edu-grade-${index}`}
