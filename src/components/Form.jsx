@@ -226,14 +226,14 @@ export default function Form() {
             body: formData,
           });
           const data = await response.json();
-          project.thumbnail = data.public_id; // Save public_id to project
+          project.thumbnail = data.secure_url; // Save public_id to project
         } catch (error) {
           console.error("Error uploading image:", error);
           alert("There was an error uploading the image.");
           return;
         }
       } else {
-        project.thumbnail = "Project/ejowpggabfmioqimtx7r";
+        project.thumbnail = "https://res.cloudinary.com/dgvfqf00g/image/upload/f_auto,q_auto/v1/Project/ejowpggabfmioqimtx7r";
       }
     }
     
